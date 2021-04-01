@@ -1,0 +1,246 @@
+#include <iostream>
+using namespace std;
+double total=0.0;
+char choose;
+string op="";
+double a=0;
+double b=0;
+double c=0;
+
+float m (double a, double b)
+{
+double d=0;
+while (b>0)
+{
+d=d+a; b--;
+}
+return d;
+}
+double mm (double a, double b)
+{
+    float l=0;
+    float d=0;
+    float fe=m(a,100);
+    float ge=m(b,100);
+    double c=m(fe,ge);
+    double z=m(0.0001,c);
+    d=z+0;
+    return d;
+}
+double d (int a, int b)
+{
+    float l=0;
+    float d=0;
+    float e=0;
+    while (a>=b)
+    {
+        a=a-b; l++;
+    }
+    int f=m(a,100);
+    while (f>=b)
+    {
+        f=f-b; e++;
+    }
+    d=m(0.01, e);
+    l=l+d;
+    return l;
+}
+int exit()
+{
+return 0;
+}
+double enternumber ()
+{
+    cout<<"\nEnter first number: "<<endl;
+    cin>>a;
+    cout<<"\nEnter second number: "<<endl;
+    cin>>b;
+}
+float ifcontinue()
+{
+    cout<<"\nContinue? \nPress Y or y for YES\nPress N or n for NO\n";
+    cin>>choose;
+while ((choose=='y')||(choose=='Y'))
+    {
+        while (op!="5")
+        {
+cout<<"\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Exit\n";
+        cin>>op;
+        if ((op=="1")||(op=="2")||(op=="3")||(op=="4")||(op=="5"))
+        {
+            if (op=="1")
+            {
+                cout<<"\nEnter next number: \n"<<endl;
+                cin>>c;
+                total=total+c;
+                cout<<"Answer is: "<<total<<endl;
+                ifcontinue();
+            }
+            else if (op=="2")
+            {
+                cout<<"\nEnter next number: \n"<<endl;
+                cin>>c;
+                total=total-c;
+                cout<<"Answer is: "<<total<<endl;
+                ifcontinue();
+            }
+            else if (op=="3")
+            {
+                cout<<"\nEnter next number: \n"<<endl;
+                cin>>c;
+                total=mm(total,c);
+                cout<<"Answer is: "<<total<<endl;
+                ifcontinue();
+            }
+            else if (op=="4")
+            {
+                cout<<"\nEnter next number: \n"<<endl;
+                cin>>c;
+                if (c==0)
+                {
+                    cout<<"\nSyntax error! Please try again! *Memory restored*\n";
+                }
+                else
+                {total=d(total,c);
+                cout<<"Answer is: "<<total<<endl;
+                ifcontinue();}
+            }
+            else if (op=="5")
+            {
+                return 0;
+            }
+            else
+            {
+                cout<<"\nWrong Syntax! Please try again!\n";
+                cin.clear();
+                cin.ignore(256, '\n');
+            }
+        }}
+    }
+    while ((choose=='n')||(choose=='N'))
+    {
+        total=0;
+cout<<"Memory deleted...";
+cout<<"\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Exit\n";
+   cin>>op;
+    if (op=="1")
+    {
+        enternumber();
+        total=a+b;
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();
+    }
+    else if (op=="2")
+    {
+        enternumber();
+        total=a-b;
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();
+    }
+    else if (op=="3")
+    {
+        enternumber();
+        total=mm(a,b);
+        cout<<"Answer is: "<<total<<endl;
+        ifcontinue();
+    }
+    else if (op=="4")
+    {
+        enternumber();
+        if (b==0)
+        {
+            cout<<"\nSyntax error\n";
+            exit();
+        }
+        else
+        {total=d(a,b);
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();}
+    }
+    else if (op=="5")
+    {
+        cout<<"\n----------Exiting...----------\n";
+        return 0;
+    }
+    else
+    {
+        ifcontinue();
+    }
+
+    }
+    if  ((choose!='y')||(choose!='Y')||(choose!='n')||(choose!='N'))
+    {
+        cin.clear();
+        cin.ignore(256,'\n');
+    }
+
+}
+
+int main()
+{
+   string username,password;
+    cout<<"PLEASE ENTER USERNAME AND PASSWORD\n\n";
+cout<<"Enter username: "<<endl;
+   cin>>username;
+   cout<<"Enter password: "<<endl;
+   cin>>password;
+    while (op!="5")
+    {
+    if ((username=="1")&&(password=="1"))
+    {
+   cout<<"WELCOME TO CALCULATOR!!\n";
+   cout<<"\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Exit\n";
+   cin>>op;
+    if (op=="1")
+    {
+        enternumber();
+        total=a+b;
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();
+    }
+    else if (op=="2")
+    {
+        enternumber();
+        total=a-b;
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();
+    }
+    else if (op=="3")
+    {
+        enternumber();
+        total=mm(a,b);
+        cout<<"Answer is: "<<total<<endl;
+        ifcontinue();
+    }
+    else if (op=="4")
+    {
+        enternumber();
+        if (b==0)
+        {
+            cout<<"\nSyntax error\n";
+            continue;
+        }
+        else
+        {total=d(a,b);
+        cout<<"Answer is: "<<total<<endl;
+         ifcontinue();}
+    }
+    else if (op=="5")
+    {
+        cout<<"\n----------Exiting...----------\n";
+        return 0;
+    }
+    else
+    {
+        cin.clear();
+        cin.ignore(256,'\n');
+
+    }
+    }
+    else
+    {
+        cout<<"\nWrong username or password!\n\n";
+        main();
+    }
+    }
+}
